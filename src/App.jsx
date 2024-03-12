@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import myNav from './components/myNav/myNav.jsx';
 import Main from './components/main/main.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import Navbar from './components/Navbar/Navbar.jsx';
 
 function App() {
   return (
     <>
-      <myNav />
+      <Navbar />
       <Main />
       <Footer />
     </>
