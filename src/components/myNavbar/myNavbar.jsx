@@ -1,7 +1,7 @@
 import { Container, Navbar } from "react-bootstrap";
 
 
-export default function Navbar () {
+export default function myNavbar () {
 
     return (
         <Navbar className="bg-body-transparent">
