@@ -1,27 +1,36 @@
 import './main.css'
-import { Container, Row, Col, Card} from 'react-bootstrap';
+import { Container, Row, Form } from 'react-bootstrap';
 import jsonData from '../../data/horror.json';
+import SingleBook from './SingleBook';
+import { useState } from 'react';
 
 export default function main ({ img, title }) { 
 
+    const [inputName, setInputName] = useState("");
+
+   
+    const searchResult = jsonData.filter((element) => {
+        return element.title.toLowerCase().includes(inputName.toLowerCase())
+    });
+
+
     return (
         <>
-            <Container className='my-4'>
-                <Row>
-                    {jsonData.map((book) => {
-                        return (
-                           <Col sm={6} md={3} lg={3} className='g-4'>
-                            <Card className='h-100 cursor-hover border-color'>
-                                <Card.Img src={book.img} className='card-image'/>
-                                <Card.Body className="p-2">
-                                    <Card.Title className='fs-6 text-center ellipsis'>{book.title}</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </Col>  
-                        )                         
-                    })}
-                </Row>
-            </Container>  
+        <Container className='my-4'> 
+
+          
+            <Form.Control className= "input-field my-4"
+            type="text" value={inputName} id="inputSearch"
+            placeholder="Find title..."
+            onChange={(e) => setInputName(e.target.value)}/>
+
+            <Row>
+                {searchResult.map((book) => (
+                    <SingleBook key={book.asin} image={book.img} title={book.title} price={`${book.price} dollar`}/>
+                ))}
+            </Row>
+
+        </Container>  
         </>
     )
 }
