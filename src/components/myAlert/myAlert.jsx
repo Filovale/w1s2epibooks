@@ -1,4 +1,4 @@
-import { myAlert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import './myAlert.css'
 import { useState, useEffect } from 'react';
 
