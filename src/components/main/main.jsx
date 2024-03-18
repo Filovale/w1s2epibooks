@@ -4,7 +4,7 @@ import jsonData from '../../data/horror.json';
 import SingleBook from './SingleBook';
 import { useState } from 'react';
 
-export default function main ({ img, title }) { 
+export default function Main ({ img, title }) { 
 
     const [inputName, setInputName] = useState("");
 
